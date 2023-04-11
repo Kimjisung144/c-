@@ -18,9 +18,9 @@ int main()
 {
 	Rectangle qu; // 객체 생성
 	cout << "폭 길이 입력:";
-	cin >> qu.width;
+	cin >> qu.width; // .은 연산자다 메모리가 할당되면 연산자를 통해 접근 가능 width값 cin을 통해 넣기
 	cout << "높이 길이 입력:";
-	cin >> qu.height;
+	cin >> qu.height; // .은 연산자다 메모리가 할당되면 연산자를 통해 접근 가능 height값 cin을 통해 넣기
 	cout << qu.getArea() << endl;// 객체안에 함수 호출
     cout << "Hello World!"<<endl;
 }
