@@ -1,0 +1,26 @@
+// 직사각형 클래스의 만들기
+#include <iostream>
+using namespace std;
+//선언부
+class Rectangle
+{
+public:
+	int width,height;
+	int getArea();
+};
+// 구현부
+int Rectangle::getArea()
+{
+	return width * height;
+}
+
+int main()
+{
+	Rectangle qu; // 객체 생성
+	cout << "폭 길이 입력:";
+	cin >> qu.width;
+	cout << "높이 길이 입력:";
+	cin >> qu.height;
+	cout << qu.getArea() << endl;// 객체안에 함수 호출
+    cout << "Hello World!"<<endl;
+}
