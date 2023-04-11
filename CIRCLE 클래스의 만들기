@@ -1,0 +1,24 @@
+// CIRCLE 클래스의 만들기
+#include <iostream>
+using namespace std;
+//선언부
+class circle
+{
+public:
+	int radius;
+	double getArea();
+};
+// 구현부
+double circle::getArea()
+{
+	return 3.14 * radius * radius; // return 값
+}
+
+int main()
+{
+	circle donut; // 객체 생성
+	cin >> donut.radius; // 클래스 멤버변수를 입력받은 값 넣기
+	cout << donut.getArea() << endl;// 객체안에 함수 호출
+    cout << "Hello World!"<<endl;
+
+} 
