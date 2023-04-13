@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+
+//선언부
+class circle {
+public:
+    circle(); // 생성자 :생성자가 생성되면 자동으로 호출되는 멤버함수 그리고 한 클래스에 여러개 생성자 가능 단 이름은 클래스 명과 같아야함
+    circle(int r); // 매개 변수 있는 생성자 (매개변수는 함수 호출될때 전달되는 변수)
+    int radius; // 객체 생성되면 자동으로 메모리에 할당됨
+    int getArea(); // 맴버 함수 선언
+    ~circle(); // 객체 소멸자 선언 안써도 객체가 있으면 자동으로 생성됨
+};
+
+//구현부
+circle :: circle(): circle(1) { // 매개변수 없는 생성자에서 매개변수 있는 생성자로 1를 위임한다  :위임 표시 위임생성자
+    }
+
+circle :: circle(int r) : radius(r) { // 타겟 생성자임, 위임받은 값을 매개번수에 넣음
+}
+
+int circle::getArea()
+{
+    return 3.14 * radius * radius; //부피 결과값
+}
+
+circle::~circle()// 객체 소멸자 생성자가 소멸될때
+{
+    cout << "반지름" << radius << "원소멸" << endl;
+}
+//메인
+int main()
+{
+    circle donut; // 객체 생성 그러면서 자동적으로 qu의 width,height가 메모리에 할당된다.
+    circle pizza(4);
+    cout << donut.getArea() << endl;
+    cout << pizza.getArea() << endl;
+    return 0;
+}
