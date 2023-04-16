@@ -1,0 +1,15 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int numberofdays[12] = {31,28,31,30,31,30,31,31,30,31,30,31};
+    int month;
+    do {
+        cout << "1~12월 사이 입력:";
+        cin >> month;
+    } while (1 > month || month > 12);
+    cout << "해당 달의 일의 수는 " << numberofdays[month-1];
+    return 0;
+}
