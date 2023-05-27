@@ -1,20 +1,36 @@
 #include <iostream>
+#include <string>
+
 using namespace std;
 int main()
 {
     char number_list[26] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'}; // 문자순서 테이블
+    char cipher[100];
     double b = 3.0; //문자에 3더하기위한 변수
-    char a; // 문자 변수
-    int imcy; // 몇번째 문자인지 확인하기 위해
+    string a; // 문자 변수
+    int imcy,lengt,key; // 몇번째 문자인지 확인하기 위해
 
-    cin >> a;
-    for (int i = 0; i < 26; i++)
+    cout << "암호할 단어를 입력하시오:";
+    cin >> a; // 단어 입력받기
+    lengt = a.length(); // 단어 길이
+
+    cout << "k를 입력해주세요:";
+    cin >> key; // 단어 입력받기
+
+    for (int i = 0; i < lengt; i++)
     {
-        if (number_list[i] == a)
+        for (int j = 0; j < 26; j++)
         {
-            imcy = i;
+            if (number_list[j] == a[i])
+            {
+                imcy = j;
+                imcy = (imcy + key) % 26; //시저암호 공식: y = (imcy+3)mod 26
+                cipher[i] = number_list[imcy];
+            }
         }
     }
-    imcy = (imcy + 3) % 26; //시저암호 공식: y = (imcy+3)mod 26
-    cout << number_list[imcy]; // 결과출력
+    for (int i = 0; i < lengt; i++)
+    {
+        cout << cipher[i];
+    }
 }
