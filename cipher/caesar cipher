@@ -24,7 +24,7 @@ int main()
             if (number_list[j] == a[i])
             {
                 imcy = j;
-                imcy = (imcy + key) % 26; //시저암호 공식: y = (imcy+3)mod 26
+                imcy = (imcy + 3) % 26; //시저암호 공식: y = (imcy+3)mod 26
                 cipher[i] = number_list[imcy];
             }
         }
