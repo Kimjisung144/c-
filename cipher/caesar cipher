@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    char number_list[26] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'}; // 문자순서 테이블
+    double b = 3.0; //문자에 3더하기위한 변수
+    char a; // 문자 변수
+    int imcy; // 몇번째 문자인지 확인하기 위해
+
+    cin >> a;
+    for (int i = 0; i < 26; i++)
+    {
+        if (number_list[i] == a)
+        {
+            imcy = i;
+        }
+    }
+    imcy = (imcy + 3) % 26; //시저암호 공식: y = (imcy+3)mod 26
+    cout << number_list[imcy]; // 결과출력
+}
