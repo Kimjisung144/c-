@@ -1,0 +1,137 @@
+#include <iostream>
+#include <string>
+#inlcude "Country.h"
+using namespace std;
+
+class Country{
+protected:
+	string country_name;
+	int military;
+	int citizen;
+	double resources;
+	double science;
+	double tax;
+public:
+	Country(string n,int m,int c,double r,double s, double t);
+	void show();
+	int attack(int power);
+	void dev_sc(double sc);
+	void get_tax(int tax1);
+};
+
+virtual Country::Country()
+{
+	this->country_name;
+	this->military = 1000;
+	this->citizen = 200;
+	this->resources = 500;
+	this->science = 200;
+	this->tax = 10000;
+}
+virtual void Country::show()
+{
+	cout<<"국가 생태"
+	cout<<"country name:"<<country_name<<endl;
+	cout<<"military:"<<military<<endl;
+	cout<<"citizen:"<<citizen<<endl;
+	cout<<"resources:"<<resources<<endl;
+	cout<<"science:"<<science<<endl;
+	cout<<"tax:"<<tax<<endl;
+}
+virtual int Country::attack(int power)
+{
+	int zero = 0;
+	if(military>power)
+	{
+		military  = military-power;
+		return power;
+	}else{
+		cout<<"그정도의"<<power<<"는 없습니다."<<endl;
+	}
+	return zero;
+}
+virtual void dev_sc(double sc){
+	science = science + sc;
+}
+virtual get_tax(int tax1){
+	tax = tax + tax1;
+}
+
+class UK:public Country{
+private:
+	double navy;
+public:
+	UK();
+	int navy_attack();
+};
+UK::UK(string name)
+{
+	country_name = name;
+	navy = 100;
+}
+double UK::navy_attack(char field)
+{
+	if(field == "sea")
+	{
+		military = military + navy;
+		return attack(navy);	
+	}
+}
+
+class France:public Country{
+private:
+	double army;
+public:
+	France();
+	int army_attack();
+};
+France::France()
+{
+	army = 100;
+}
+double UK::navy_attack(char field)
+{
+	if(field == "land")
+	{
+		military = military + army;
+		return attack(army);	
+	}
+}
+
+int main(int argc, char** argv) {
+	bool choose;
+	string name;
+	int power;
+		cout<<"어느나라를 선택하시겠습니까?(0:영국,1:프랑스):";
+		cin << choose;
+		if(choose == 0)
+		{
+			cout << "직접 지을 나라이름을 입력하세요:"<<endl;
+			cin >> name;
+			UK uk(name);
+			cout << uk.show();
+		}else if(choose == 1)
+		{
+			cout<<"직접 지을 나라이름을 입력하세요:"<<endl;
+			cin>> name;
+			France fr(name);
+			cout << fr.show();
+		}
+		switch(choose){
+			case 0:
+				cout<<"상대 국가를 공격해야합니다. 공격할 병력수를 입력해주세요:";
+				cin<<power
+				uk.attack(power);
+				cout<<"공격이 성공하였습니다.\n 현재 상태"<<uk.show()<<endl;
+				break;
+			case 1:
+				cout<<"상대 국가를 공격해야합니다. 공격할 병력수를 입력해주세요:";
+				cin<<power
+				fr.attack(power);
+				cout<<"공격이 성공하였습니다.\n 현재 상태"<<fr.show()<<endl;
+				break;
+			default:
+		}
+	}
+	return 0;
+}
