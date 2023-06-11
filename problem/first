@@ -1,0 +1,101 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Country{
+protected:
+	string country_name;
+	int military;
+	int citizen;
+	double resources;
+	double science;
+	double tax;
+public:
+	Country(string n,int m,int c,double r,double s, double t);
+	void show();
+	int attack(int power);
+	void dev_sc(double sc);
+	void get_tax(int tax1);
+};
+
+virtual Country::Country(string n,int m,int c,double r,double s, double t)
+{
+	this->country_name = n;
+	this->military = m;
+	this->citizen = c;
+	this->resources = r;
+	this->science = s;
+	this->tax = t;
+}
+virtual void Country::show()
+{
+	cout<<"국가 생태"
+	cout<<"country name:"<<country_name<<endl;
+	cout<<"military:"<<military<<endl;
+	cout<<"citizen:"<<citizen<<endl;
+	cout<<"resources:"<<resources<<endl;
+	cout<<"science:"<<science<<endl;
+	cout<<"tax:"<<tax<<endl;
+}
+virtual int Country::attack(int power)
+{
+	int zero = 0;
+	if(military>power)
+	{
+		military  = military-power;
+		return power;
+	}else{
+		cout<<"그정도의"<<power<<"는 없습니다."<<endl;
+	}
+	return zero;
+}
+virtual void dev_sc(double sc){
+	science = science + sc;
+}
+virtual get_tax(int tax1){
+	tax = tax + tax1;
+}
+
+class UK:public Country{
+private:
+	double navy;
+public:
+	UK();
+	int navy_attack();
+};
+UK::UK()
+{
+	navy = 100;
+}
+double UK::navy_attack(char field)
+{
+	if(field == "sea")
+	{
+		military = military + navy;
+		return attack(navy);	
+	}
+}
+
+class France:public Country{
+private:
+	double army;
+public:
+	France();
+	int army_attack();
+};
+France::France()
+{
+	army = 100;
+}
+double UK::navy_attack(char field)
+{
+	if(field == "land")
+	{
+		military = military + army;
+		return attack(army);	
+	}
+}
+
+int main(int argc, char** argv) {
+	return 0;
+}
